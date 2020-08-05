@@ -79,6 +79,7 @@ def upload():
             data = redis.get(key).decode('utf-8')
             json.dump(json.loads(data), outfile)
             outfile.write('\n')
+            redis.delete(key)
         outfile.close()
 
 
